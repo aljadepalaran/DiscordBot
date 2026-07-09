@@ -1,3 +1,6 @@
 # build outputs
 obj/
 bin/
+
+# configuration
+appsettings.json
