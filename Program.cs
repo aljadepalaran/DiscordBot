@@ -18,7 +18,15 @@ builder.Services
 var host = builder.Build();
 
 
-host.AddSlashCommand("ping", "Ping!", () => "Pong!");
+host.AddSlashCommand("ping", "Ping!", (int number) =>
+  {
+    var output = new List<string>();
+    for (int i = 0; i < number; i++)
+    {
+        output.Add("Pong!");
+    }
+    return string.Join("", output);
+  });
 host.AddUserCommand("Username", (User user) => user.Username);
 host.AddMessageCommand("Length", (RestMessage message) => message.Content.Length.ToString());
 
